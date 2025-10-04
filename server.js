@@ -2,7 +2,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
-//const authRoutes = require('./routes/auth');
+const authRoutes = require('./routes/auth');
+const jobRoutes = require('./routes/jobs');
+const freelancersRoute = require('./routes/freelancers');
+const profileRoute = require('./routes/profile');
 
 dotenv.config();
 
@@ -16,7 +19,10 @@ app.use(cors({
 }));
 
 
-//app.use('/api/auth', authRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/jobs', jobRoutes);
+app.use('/api/freelancers', freelancersRoute);
+app.use('/api/profile', profileRoute);
 
 app.get("/", (req, res) => {
   res.send("API is running...");
