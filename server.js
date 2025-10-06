@@ -6,6 +6,10 @@ const authRoutes = require('./routes/auth');
 const jobRoutes = require('./routes/jobs');
 const freelancersRoute = require('./routes/freelancers');
 const profileRoute = require('./routes/profile');
+const searchRoutes = require('./routes/search');
+const pricingRoutes = require('./routes/pricing.js');
+
+
 
 dotenv.config();
 
@@ -23,6 +27,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/jobs', jobRoutes);
 app.use('/api/freelancers', freelancersRoute);
 app.use('/api/profile', profileRoute);
+app.use('/api/search', searchRoutes);
+app.use("/api/pricing", pricingRoutes);
 
 app.get("/", (req, res) => {
   res.send("API is running...");
