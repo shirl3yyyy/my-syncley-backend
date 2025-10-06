@@ -1,5 +1,5 @@
 const express = require("express");
-const Pricing = require("../models/PricingModel");
+const PricingModel = require("../models/PricingModel");
 
 const router = express.Router();
 
@@ -7,7 +7,7 @@ router.post("/", async (req, res) => {
   try {
     const { name, email, phone, plan } = req.body;
 
-    const newPricing = new Pricing({ name, email, phone, plan });
+    const newPricing = new PricingModel({ name, email, phone, plan });
     await newPricing.save();
 
     res.json({ message: "✅ Data saved successfully!" });
